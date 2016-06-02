@@ -1,0 +1,91 @@
+@import url("http://meyerweb.com/eric/tools/css/reset/reset.css");
+
+body {
+  background-color: #cecece;
+  padding: 0 30px;
+  font: 16px Helvetica, Arial;
+}
+
+main {
+  background-color: #fff;
+  padding: 30px 20px 50px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin: 16px 0;
+  font-size: 24px;
+}
+
+h1,
+h2,
+h3,
+label {
+  font-weight: bold;
+}
+
+input,
+button {
+  height: 36px;
+  margin: 3px 0;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #ababab;
+  font-size: 14px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+input + input {
+  display: block;
+}
+
+label {
+  display: block;
+}
+
+p {
+  margin-top: 3px;
+  margin-bottom: 16px;
+}
+
+table {
+  margin-top: 16px;
+  width: 500px;
+}
+th {
+  text-align: left;
+}
+th + th,
+td + td {
+  padding-left: 30px;
+}
+#item_table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#item_table div tr:nth-child(2n) {
+  height: 55px;
+}
+
+button {
+  background: linear-gradient(#00c223, #009918);
+  color: #fff;
+  width: 100px;
+  display: block;
+  margin-bottom: 17px;
+}
+
+input[type="submit"] {
+  background: linear-gradient(#547bf4, #496ad1);
+  color: #fff;
+  width: 170px;
+}
