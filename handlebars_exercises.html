@@ -9,12 +9,26 @@
   </head>
   <body>
     <h1>IT'S SOMETHING</h1>
+    <script id="tag_template" type="text/x-handlebars">
+      <li>#{{.}}</li>
+    </script>
     <script id="post_template" type="text/x-handlebars">
-      <h3>{{title}}</h3>
-      <ul>
-        <li><time>Posted on: {{published_date}}</time></li>
-        <li>{{body}}</li>
-      </ul>
+      {{#each posts}}
+        <h3>{{title}}</h3>
+        <ul>
+          <li><time>Posted on: {{published_date}}</time></li>
+          <li>{{{body}}}</li>
+        </ul>
+        {{#if tags}}
+          <ul>
+            {{#each tags}}
+              {{> tag_template}}
+            {{/each}}
+          </ul>
+        {{else}}
+          <strong>Not tagged.</strong>
+        {{/if}}
+      {{/each}}
     </script>
   </body>
 </html> 
