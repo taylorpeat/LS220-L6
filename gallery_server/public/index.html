@@ -4,10 +4,56 @@
     <title>Slideshow Project</title>
     <meta charset="UTF-8" />
     <link href="stylesheets/gallery.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="handlebars-v4.0.5.js"></script>
+    <script src="javascripts/jquery-1.12.4.js"></script>
     <script src="javascripts/gallery.js"></script>
   </head>
   <body>
-    <h1>Hello!</h1>
+    <main>
+      <h1>Amanda Rose's Photos</h1>
+      <figure>      
+      </figure>
+      <section>
+        <div class="group">      
+        </div>
+        <h3>Comments</h3>
+        <ul id="comments">
+        </ul>
+      </section>
+      <h5>Your Comment</h5>
+      <form>
+        <label>Your Name
+          <input type="text">
+        </label>
+        <label>Email Address
+          <input type="email" placeholder="you@example.com">
+        </label>
+        <label>Comment
+          <textarea></textarea>
+        </label>
+        <input type="submit" value="Post Comment">
+      </form>
+    </main>
+    <script id="figure_template" type="text/x-handlebars">
+      <img src="{{photo_src}}" alt="{{photo_placeholder}}">
+      <i id="icon_left"></i>
+      <i id="icon_right"></i>
+      <figcaption>{{photo_caption}}</figcaption>
+    </script>
+    <script id="info_template" type="text/x-handlebars">
+      <h2>{{photo_title}}</h2>
+      <button>&#9825; {{favourites}} Favourites</button>
+      <button>&#9734; {{likes}} Likes</button>
+      <p>Taken on <time>{{photo_date}}</time></p>
+    </script>
+    <script id="comment_template" type="text/x-handlebars">
+      {{#each comments}}  
+        <li>
+          <h4>{{name}}</h4>
+          <p>Posted <time>{{comment_date}}</time></p>
+          <p>{{comment_body}}</p>
+        </li>
+      {{/each}}
+    </script>
   </body>
 </html> 

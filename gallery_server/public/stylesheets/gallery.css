@@ -1,1 +1,196 @@
 @import "http://meyerweb.com/eric/tools/css/reset/reset.css";
+
+body {
+  font: 18px Helvetica, Arial, Sans-serif;
+  padding: 0 50px;
+  background-color: #000;
+}
+
+main {
+  margin: 0 auto;
+  width: 1020px;
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+figure {
+  position: relative;
+  height: 856px;
+  margin-bottom: 40px;
+}
+figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #3c3c3c;
+  color: #fff;
+  height: 75px;
+  display: block;
+  padding: 15px;
+  box-sizing: border-box;
+}
+img {
+  position: absolute;
+  width: 100%;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  float: left;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+button + p {
+  margin-bottom: 40px;
+  float: left;
+  clear: left;
+}
+
+button,
+input[type="submit"] {
+  padding: 0 15px;
+  border: none;
+  box-shadow: none;
+  border-radius: 10px;
+  height: 38px;
+  font-size: 16px;
+
+}
+
+button {
+  float: right;
+  vertical-align: top;
+  background-color: #b50e82;
+  color: #fff;
+  position: relative;
+  top: 3px;
+}
+
+button + button {
+  height: 44px;
+  background-color: #c6e9fc;
+  color: #48849c;
+  margin-right: 4px;
+  padding: 0 15px;
+  position: static;
+}
+
+.group:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+i#icon_left,
+i#icon_right {
+  position: absolute;
+  top: 408px;
+  margin-top: -40px;
+  z-index: 2;
+  width: 48px;
+  height: 80px;
+  background-image: url(../images/icon_pager.png);
+  cursor: pointer;
+}
+
+i#icon_left {
+  left: 20px;
+}
+
+i#icon_right {
+  right: 20px;
+  background-position: 48px; 
+}
+
+li {
+  padding: 18px 0 40px 65px;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+li:before {
+  float: left;
+  content: "";
+  background-image: url(../images/gravatar.png);
+  background-size: 100%;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  margin-left: -60px;
+}
+
+li + li {
+  border-top: 1px solid #c0c0c0;
+}
+
+li p {
+  font-size: 14px;
+  padding: 0 0 15px;
+}
+
+li p + p {
+  font-size: 18px;
+}
+
+form {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+}
+
+textarea,
+input {
+  display: block;
+  margin: 5px 0 15px 0;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  height: 40px;
+  width: 260px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid #c0c0c0;
+  font-size: 16px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 85px;
+}
+ 
+input[type="submit"] {
+  background-color: #c4ebfa;
+  color: #4a7cad;
+}
