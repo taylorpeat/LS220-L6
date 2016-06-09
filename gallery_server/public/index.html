@@ -11,10 +11,12 @@
   <body>
     <main>
       <h1>Amanda Rose's Photos</h1>
-      <figure>      
-      </figure>
+      <div id="photos">
+          <i id="icon_left"></i>
+          <i id="icon_right"></i> 
+      </div>
       <section>
-        <div class="group">      
+        <div class="group">     
         </div>
         <h3>Comments</h3>
         <ul id="comments">
@@ -35,20 +37,25 @@
       </form>
     </main>
     <script id="figure_template" type="text/x-handlebars">
-      <img src="{{photo_src}}" alt="{{photo_placeholder}}">
-      <i id="icon_left"></i>
-      <i id="icon_right"></i>
-      <figcaption>{{photo_caption}}</figcaption>
+      {{#each photos}}
+        <div>
+          <figure data-id="{{id}}">
+            <img src="{{src}}" alt="photo">
+          </figure>
+          <figcaption>{{caption}}</figcaption>
+        </div>
+      {{/each}}
     </script>
     <script id="info_template" type="text/x-handlebars">
       <h2>{{photo_title}}</h2>
       <button>&#9825; {{favourites}} Favourites</button>
       <button>&#9734; {{likes}} Likes</button>
-      <p>Taken on <time>{{photo_date}}</time></p>
+      <p>Taken on <time>{{created_at}}</time></p>
     </script>
     <script id="comment_template" type="text/x-handlebars">
       {{#each comments}}  
         <li>
+          <img src="../images/gravatar.png">
           <h4>{{name}}</h4>
           <p>Posted <time>{{comment_date}}</time></p>
           <p>{{comment_body}}</p>
