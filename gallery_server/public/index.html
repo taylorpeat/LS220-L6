@@ -47,9 +47,9 @@
       {{/each}}
     </script>
     <script id="info_template" type="text/x-handlebars">
-      <h2>{{photo_title}}</h2>
-      <button>&#9825; {{favourites}} Favourites</button>
-      <button>&#9734; {{likes}} Likes</button>
+      <h2>{{title}}</h2>
+      <button id="favourites">&#9825; {{favorites}} Favourites</button>
+      <button id="likes">&#9734; {{likes}} Likes</button>
       <p>Taken on <time>{{created_at}}</time></p>
     </script>
     <script id="comment_template" type="text/x-handlebars">
@@ -57,8 +57,8 @@
         <li>
           <img src="../images/gravatar.png">
           <h4>{{name}}</h4>
-          <p>Posted <time>{{comment_date}}</time></p>
-          <p>{{comment_body}}</p>
+          <p>Posted <time>{{date}}</time></p>
+          <p>{{body}}</p>
         </li>
       {{/each}}
     </script>
