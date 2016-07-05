@@ -25,13 +25,13 @@
       <h5>Your Comment</h5>
       <form>
         <label>Your Name
-          <input type="text">
+          <input type="text" name="name">
         </label>
         <label>Email Address
-          <input type="email" placeholder="you@example.com">
+          <input type="email" name="email" placeholder="you@example.com">
         </label>
         <label>Comment
-          <textarea></textarea>
+          <textarea name="body"></textarea>
         </label>
         <input type="submit" value="Post Comment">
       </form>
@@ -52,15 +52,18 @@
       <button id="likes">&#9734; {{likes}} Likes</button>
       <p>Taken on <time>{{created_at}}</time></p>
     </script>
-    <script id="comment_template" type="text/x-handlebars">
+    <script id="comments_template" type="text/x-handlebars">
       {{#each comments}}  
-        <li>
-          <img src="../images/gravatar.png">
-          <h4>{{name}}</h4>
-          <p>Posted <time>{{date}}</time></p>
-          <p>{{body}}</p>
-        </li>
+        
       {{/each}}
+    </script>
+    <script id="comment_template" type="text/x-handlebars"> 
+      <li>
+        <img src="../images/gravatar.png">
+        <h4>{{name}}</h4>
+        <p>Posted <time>{{date}}</time></p>
+        <p>{{body}}</p>
+      </li>
     </script>
   </body>
 </html> 

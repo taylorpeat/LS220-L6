@@ -92,7 +92,10 @@ $(function() {
     $.ajax({
       method: "POST",
       url: "/comments/new",
-      data: collect_form_data(current_id)
+      data: $("form").serialize()
+      success: function() {
+        
+      }
     });
     get_comments(current_id);
   });
