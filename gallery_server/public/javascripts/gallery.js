@@ -1,14 +1,22 @@
 $(function() {
-  var figure_template = Handlebars.compile($("#figure_template").html());
-  var info_template = Handlebars.compile($("#info_template").html());
-  var comment_template = Handlebars.compile($("#comment_template").html());
-  var current_id = 1;
+  var templates = {},
+      current_id = 1;
+
+  $("[type='text/x-handlebars']").each(function() {
+    var $tmpl = $(this);
+    templates[$tmpl.attr("id")] = Handlebars.compile($tmpl.html());
+  });
+
+  $("[data-type='partial']").each(function() {
+    var $tmpl = $(this);
+    Handlebars.registerPartial($tmpl.attr("id"), $tmpl.html());
+  });
 
   get_info = function(id) {
     $.ajax({
       url: "/photos",
       success: function(json) {
-        $(".group").html(info_template(json[id - 1]));
+        $(".group").html(templates.info(json[id - 1]));
       }
     });
   }
@@ -17,8 +25,7 @@ $(function() {
     $.ajax({
       url: "/comments?photo_id=" + id,
       success: function(json) {
-        console.dir(json);
-        $("#comments").html(comment_template({ comments: json }));
+        $("#comments").html(templates.comments({ comments: json }));
       }
     });
   }
@@ -45,14 +52,14 @@ $(function() {
   $.ajax({
     url: "/photos",
     success: function(json) {
-      $("#photos").append(figure_template({ photos: json }));
+      $("#photos").append(templates.figures({ photos: json }));
       $("#photos div:first").addClass("active");
       get_info(1);
       get_comments(1);
     }
   });
 
-  $("#icon_left").on("click", function(){
+  $("#icon_left").on("click", function() {
     if ($("div.active").prev("div")[0] === undefined) {
       $new_photo = $("#photos div:last");
     } else {
@@ -65,7 +72,7 @@ $(function() {
     get_comments(current_id);
   });
 
-  $("#icon_right").on("click", function(){
+  $("#icon_right").on("click", function() {
     if ($("div.active").next("div")[0] === undefined) {
       $new_photo = $("#photos div:first");
     } else {
@@ -78,7 +85,7 @@ $(function() {
     get_comments(current_id);
   });
 
-  $("#favourites").on("click", function(){
+  $("#favourites").on("click", function () {
     console.log("favourite!");
     update_counter(current_id, "favorites");
   });
@@ -87,14 +94,13 @@ $(function() {
     update_counter(current_id, "favorites");
   });
 
-  $("input[type='submit']").on("click", function(e){
+  $("input[type='submit']").on("click", function(e) {
     e.preventDefault();
     $.ajax({
       method: "POST",
       url: "/comments/new",
-      data: $("form").serialize()
+      data: $("form").serialize(),
       success: function() {
-        
       }
     });
     get_comments(current_id);

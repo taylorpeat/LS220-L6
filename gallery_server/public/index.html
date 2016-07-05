@@ -36,7 +36,7 @@
         <input type="submit" value="Post Comment">
       </form>
     </main>
-    <script id="figure_template" type="text/x-handlebars">
+    <script id="figures" type="text/x-handlebars">
       {{#each photos}}
         <div>
           <figure data-id="{{id}}">
@@ -46,18 +46,18 @@
         </div>
       {{/each}}
     </script>
-    <script id="info_template" type="text/x-handlebars">
+    <script id="info" type="text/x-handlebars">
       <h2>{{title}}</h2>
       <button id="favourites">&#9825; {{favorites}} Favourites</button>
       <button id="likes">&#9734; {{likes}} Likes</button>
       <p>Taken on <time>{{created_at}}</time></p>
     </script>
-    <script id="comments_template" type="text/x-handlebars">
+    <script id="comments" type="text/x-handlebars">
       {{#each comments}}  
-        
+        {{> comment }}
       {{/each}}
     </script>
-    <script id="comment_template" type="text/x-handlebars"> 
+    <script id="comment" type="text/x-handlebars" data-type="partial" > 
       <li>
         <img src="../images/gravatar.png">
         <h4>{{name}}</h4>
