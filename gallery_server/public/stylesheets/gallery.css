@@ -110,7 +110,7 @@ button + button {
   color: #48849c;
 }
 
-.group:after {
+.info:after {
   clear: both;
   display: block;
   content: "";
