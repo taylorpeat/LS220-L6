@@ -19,7 +19,9 @@ $(function() {
     $("textarea").val(note);
   }
 
-  $("nav").on("click", "li", function(e) {
+  $("nav li").on("click", function(e) {
+    e.preventDefault();
+
     var $li = $(e.target),
         idx = $li.index() + 1;
     toggleTabs($li, idx);
